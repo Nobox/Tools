@@ -1,0 +1,9 @@
+{
+  "name": "nobox",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {},
+  "dependencies": {
+    "beanie": "Nobox/beanie"
+  }
+}

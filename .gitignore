@@ -1,0 +1,20 @@
+# Laravel
+/bootstrap/compiled.php
+/vendor
+composer.phar
+composer.lock
+.env.*.php
+!.env.local-template.php
+.env.php
+
+# OS
+.DS_Store
+.idea/
+Thumbs.db
+
+# Sublime
+*.sublime-workspace
+*.sublime-project
+
+# NPM
+node_modules

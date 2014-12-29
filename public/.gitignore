@@ -1,0 +1,18 @@
+# Bower
+/components
+/bower_components
+
+# SASS
+.sass-cache
+/css/*.css
+/css/*.css.map
+/css/*.scss
+
+# JavaScript is generated
+/js/*.js
+
+# Images are served after optimization
+/img/*
+
+# SVGs are compiled into a sprite
+/svg/*.svg

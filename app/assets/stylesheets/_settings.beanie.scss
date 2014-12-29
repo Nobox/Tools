@@ -1,0 +1,190 @@
+///*------------------------------------*\
+//    #SETTINGS
+//\*------------------------------------*/
+
+// $inuit-namespace:               null;
+
+// $inuit-base-font-size:          16px;
+// $inuit-base-line-height:        24px;
+// $inuit-base-text-color:         #333;
+// $inuit-base-background-color:   #fff;
+
+$inuit-use-fractions:           false;
+
+
+
+
+
+///*------------------------------------*\
+//    #SETTINGS-RESPONSIVE
+//\*------------------------------------*/
+
+$breakpoints: (
+    "palm"          "screen and (max-width: 719px)",
+    "lap"           "screen and (min-width: 720px) and (max-width: 1023px)",
+    "lap-and-up"    "screen and (min-width: 720px)"
+);
+
+
+
+
+
+///*------------------------------------*\
+//    #FONT SIZE
+//\*------------------------------------*/
+
+// $font-size-giga:    72px;
+// $font-size-mega:    60px;
+// $font-size-kilo:    48px;
+
+// $font-size-alpha:   36px;
+// $font-size-beta:    30px;
+// $font-size-gamma:   24px;
+// $font-size-delta:   20px;
+// $font-size-epsilon: 18px;
+$font-size-zeta:    17px;
+
+// $font-size-milli:   14px;
+// $font-size-nano:    12px;
+
+
+
+
+
+///*------------------------------------*\
+//    #SPACING
+//\*------------------------------------*/
+
+// $inuit-margin:                          $inuit-base-spacing-unit;
+// $inuit-padding:                         $inuit-base-spacing-unit;
+
+$inuit-enable-margins:                     true;
+// $inuit-enable-margins--tiny:            false;
+// $inuit-enable-margins--small:           false;
+$inuit-enable-margins--large:              true;
+// $inuit-enable-margins--huge:            false;
+
+// $inuit-enable-margins--negative:        false;
+// $inuit-enable-margins--negative-tiny:   false;
+// $inuit-enable-margins--negative-small:  false;
+// $inuit-enable-margins--negative-large:  false;
+// $inuit-enable-margins--negative-huge:   false;
+
+// $inuit-enable-margins--none:            false;
+
+$inuit-enable-paddings:                    true;
+// $inuit-enable-paddings--tiny:           false;
+// $inuit-enable-paddings--small:          false;
+// $inuit-enable-paddings--large:          false;
+// $inuit-enable-paddings--huge:           false;
+
+// $inuit-enable-paddings--none:           false;
+
+
+
+
+
+///*------------------------------------*\
+//    #BUTTONS
+//\*------------------------------------*/
+
+// $inuit-btn-padding:         halve($inuit-base-spacing-unit);
+// $inuit-btn-padding--small:  halve($inuit-btn-padding);
+// $inuit-btn-padding--large:  double($inuit-btn-padding);
+// $inuit-btn-background:      #4a8ec2;
+// $inuit-btn-color:           #fff;
+// $inuit-btn-border-width:    1px;
+// $inuit-btn-border-style:    solid;
+// $inuit-btn-border-color:    $inuit-btn-background;
+// $inuit-btn-radius:          0;
+
+// $inuit-enable-btn--small:   false;
+// $inuit-enable-btn--large:   false;
+// $inuit-enable-btn--full:    false;
+// $inuit-enable-btn--pill:    false;
+
+
+
+
+
+///*------------------------------------*\
+//    #LAYOUT
+//\*------------------------------------*/
+
+// $inuit-layout-gutter:           $inuit-base-spacing-unit;
+// $inuit-layout-gutter--tiny:       quarter($inuit-layout-gutter);
+// $inuit-layout-gutter--small:        halve($inuit-layout-gutter);
+// $inuit-layout-gutter--large:       double($inuit-layout-gutter);
+// $inuit-layout-gutter--huge:     quadruple($inuit-layout-gutter);
+
+// $inuit-enable-layout--tiny:     false;
+// $inuit-enable-layout--small:    false;
+// $inuit-enable-layout--large:    false;
+// $inuit-enable-layout--huge:     false;
+// $inuit-enable-layout--flush:    false;
+// $inuit-enable-layout--rev:      false;
+$inuit-enable-layout--middle:      true;
+// $inuit-enable-layout--bottom:   false;
+// $inuit-enable-layout--right:    false;
+// $inuit-enable-layout--center:   false;
+// $inuit-enable-layout--auto:     false;
+
+// $inuit-enable-responsive-layout--tiny:     false;
+// $inuit-enable-responsive-layout--small:    false;
+// $inuit-enable-responsive-layout--large:    false;
+// $inuit-enable-responsive-layout--huge:     false;
+// $inuit-enable-responsive-layout--flush:    false;
+// $inuit-enable-responsive-layout--rev:      false;
+// $inuit-enable-responsive-layout--middle:   false;
+// $inuit-enable-responsive-layout--bottom:   false;
+// $inuit-enable-responsive-layout--right:    false;
+// $inuit-enable-responsive-layout--center:   false;
+// $inuit-enable-responsive-layout--auto:     false;
+
+
+
+
+
+///*------------------------------------*\
+//    #MEDIA
+//\*------------------------------------*/
+
+// $inuit-media-gutter:                $inuit-base-spacing-unit;
+// $inuit-media-gutter--tiny:            quarter($inuit-media-gutter);
+// $inuit-media-gutter--small:             halve($inuit-media-gutter);
+// $inuit-media-gutter--large:            double($inuit-media-gutter);
+// $inuit-media-gutter--huge:          quadruple($inuit-media-gutter);
+
+// $inuit-enable-media--tiny:          false;
+// $inuit-enable-media--small:         false;
+// $inuit-enable-media--large:         false;
+// $inuit-enable-media--huge:          false;
+// $inuit-enable-media--rev:           false;
+// $inuit-enable-media--flush:         false;
+// $inuit-enable-media--responsive:    false;
+// $inuit-media-collapse-at:           720px;
+
+
+
+
+
+///*------------------------------------*\
+//    #FLAG
+//\*------------------------------------*/
+
+// $inuit-flag-gutter:             $inuit-base-spacing-unit;
+// $inuit-flag-gutter--tiny:         quarter($inuit-flag-gutter);
+// $inuit-flag-gutter--small:          halve($inuit-flag-gutter);
+// $inuit-flag-gutter--large:         double($inuit-flag-gutter);
+// $inuit-flag-gutter--huge:       quadruple($inuit-flag-gutter);
+
+// $inuit-enable-flag--tiny:       false;
+// $inuit-enable-flag--small:      false;
+// $inuit-enable-flag--large:      false;
+// $inuit-enable-flag--huge:       false;
+// $inuit-enable-flag--rev:        false;
+// $inuit-enable-flag--flush:      false;
+// $inuit-enable-flag--top:        false;
+// $inuit-enable-flag--bottom:     false;
+// $inuit-enable-flag--responsive: false;
+// $inuit-flag-collapse-at:        720px;

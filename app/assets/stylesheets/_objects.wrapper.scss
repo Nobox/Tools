@@ -1,0 +1,9 @@
+/*------------------------------------*\
+    #WRAPPER
+\*------------------------------------*/
+
+.wrapper {
+    @include scut-center-block;
+    display: block;
+    width: 960px;
+}

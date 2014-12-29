@@ -13,7 +13,7 @@ class AppController extends BaseController {
         parent::__construct();
 
         // Set a default page title
-        $this->data['pageTitle'] = 'Laravel';
+        $this->data['pageTitle'] = 'naming convention tool';
     }
 
     /**

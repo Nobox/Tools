@@ -4,6 +4,11 @@
   "private": true,
   "devDependencies": {},
   "dependencies": {
-    "beanie": "Nobox/beanie"
+    "modernizr": "~2.8.3",
+    "beanie": "Nobox/beanie",
+    "scut": "~1.0.1",
+    "inuit-block": "~0.1.1",
+    "inuit-box": "~0.4.4",
+    "inuit-shared": "~0.1.3"
   }
 }

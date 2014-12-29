@@ -1,5 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-    <h1>Hello World!</h1>
+    <div class="wrapper">
+        <h1>naming convention tool</h1>
+
+    </div>
 @stop

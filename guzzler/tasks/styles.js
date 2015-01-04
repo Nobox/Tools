@@ -50,7 +50,6 @@ var processors = merge(defaultPostCSS, cfg.postcss);
 gulp.task('styles', function () {
 
     return gulp.src([cfg.styles + '/**/*.scss'])
-        .pipe(changed(cfg.css, { extension: '.css' }))
 
         /* [1] */
         .pipe(sourcemaps.init())

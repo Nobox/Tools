@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('title')
-    <title>{{ $pageTitle . ' | ' . trans('app.name') }}</title>
+    <title>{{ $pageTitle . ' | nobox' }}</title>
 @stop
 
 @section('stylesheets')

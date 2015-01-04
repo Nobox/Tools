@@ -16,3 +16,9 @@ Route::get('/', array(
     'as' => 'index',
     'uses' => 'AppController@showIndex'
 ));
+
+// Naming Convention Tool page
+Route::get('naming', array(
+    'as' => 'naming',
+    'uses' => 'AppController@showNaming'
+));

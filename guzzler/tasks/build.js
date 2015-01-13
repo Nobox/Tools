@@ -9,7 +9,7 @@ var gulp         = require('gulp'),
  */
 gulp.task('build', function(cb) {
     runSequence('clean',
-        ['browserify', 'styles', 'imagemin', 'svg-sprite'],
+        ['browserify', 'styles', 'imagemin', 'svg-symbols'],
         'rev',
         cb);
 });

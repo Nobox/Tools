@@ -8,7 +8,7 @@ var gulp = require('gulp'),
 
 gulp.task('serve', function (cb) {
     runSequence('clean',
-        ['browserify', 'styles', 'imagemin', 'svg-sprite'],
+        ['browserify', 'styles', 'imagemin', 'svg-symbols'],
         'watch',
         cb);
 });

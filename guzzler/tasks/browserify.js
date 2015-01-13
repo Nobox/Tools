@@ -1,59 +1,93 @@
-
 var browserify   = require('browserify'),
     coffeeify    = require('coffeeify'),
     gulp         = require('gulp'),
-    concat       = require('gulp-concat'),
-    gulpif       = require('gulp-if'),
-    gutil        = require('gulp-util'),
-    stripDebug   = require('gulp-strip-debug'),
-    sourcemaps   = require('gulp-sourcemaps'),
-    uglify       = require('gulp-uglify'),
-    buffer       = require('vinyl-buffer'),
+    _            = require('underscore'),
     source       = require('vinyl-source-stream'),
     watchify     = require('watchify'),
-    argv         = require('yargs').argv,
     bundleLogger = require('../util/bundleLogger'),
     errorHandler = require('../util/errorHandler'),
-    merge        = require('../util/merge'),
-    cfg          = require('../config')
+    cfg          = require('../config').browserify
 ;
 
-gulp.task('browserify', ['coffeelint'], function () {
-    var requiredOptions = {
-        cache: {},
-        packageCache: {},
-        fullPaths: true,
-    };
+var browserifyTask = function(cb, devMode) {
 
-    var options = merge(cfg.browserify, requiredOptions);
+    var bundleQueue = cfg.bundlesConfig.length;
 
-    var bundler = browserify(options);
-    bundler.transform(coffeeify);
+    var browserifyThis = function(bundleConfig) {
 
-    function rebundle() {
-        bundleLogger.start();
+        if (devMode) {
+            // Add watchify args and debug (sourcemaps) enabled
+            _.extend(bundleConfig, watchify.args, { debug: true });
 
-        return bundler.bundle()
-            .on('error', errorHandler)
-            .pipe(source('bundle.js'))
-            .pipe(buffer())
+            // A watchify require/external bug that prevents proper recompiling,
+            // so (for now) we'll ignore these options during development
+            bundleConfig = _.omit(bundleConfig, ['external', 'require']);
+        }
 
-            // Strip console, alert, and debugger statements from JavaScript code with strip-debug
-            .pipe(gulpif(argv.production, stripDebug()))
+        var b = browserify(bundleConfig);
+        b.transform(coffeeify);
 
-            .pipe(sourcemaps.init({ loadMaps: true}))
-                .pipe(gulpif(argv.production, uglify()))
-                .pipe(gulpif(argv.production, concat('bundle.min.js')))
-            .pipe(sourcemaps.write('./'))
+        var bundle = function() {
+            // Log when bundling starts
+            bundleLogger.start(bundleConfig.outputName);
 
-            .pipe(gulp.dest(cfg.js))
-            .on('end', bundleLogger.end);
+            return b
+                .bundle()
+                .on('error', errorHandler)
+
+                // Use vinyl-source-stream to make the
+                // stream gulp compatible. Specify the
+                // desired output filename here.
+                .pipe(source(bundleConfig.outputName))
+
+                // Specify the output destination
+                .pipe(gulp.dest(bundleConfig.dest))
+
+                .on('end', reportFinished)
+            ;
+        };
+
+        if (devMode) {
+            // Wrap with watchify and rebundle on changes
+            var w = watchify(b);
+            w.on('update', bundle);
+
+            bundleLogger.watch(bundleConfig.outputName)
+        } else {
+            // Sort out shared dependencies.
+            // b.require exposes modules externally
+            if (bundleConfig.require)
+                b.require(bundleConfig.require)
+
+            // b.external excludes modules from the bundle, and expects
+            // they'll be available externally
+            if (bundleConfig.external)
+                b.external(bundleConfig.external)
+        }
+
+        var reportFinished = function reportFinished() {
+            // Log when bundling completes
+            bundleLogger.end(bundleConfig.outputName)
+
+            if (bundleQueue) {
+                bundleQueue--;
+
+                if (bundleQueue === 0) {
+                    // If queue is empty, tell gulp the task is complete.
+                    // https://github.com/gulpjs/gulp/blob/master/docs/API.md#accept-a-callback
+                    cb();
+                }
+            }
+        }
+
+        return bundle();
     }
 
-    if (global.isWatching) {
-        bundler = watchify(bundler);
-        bundler.on('update', rebundle);
-    }
+    // Bundle with Browserify for each bundleConfig specified
+    cfg.bundlesConfig.forEach(browserifyThis);
+};
 
-    return rebundle();
-});
+gulp.task('browserify', browserifyTask);
+
+// Exporting the task so we can call it directly in our watch task, with the 'devMode' option
+module.exports = browserifyTask;

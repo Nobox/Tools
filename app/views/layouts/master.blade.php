@@ -30,9 +30,13 @@
 @stop
 
 @section('scripts-body')
+    <!-- jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
+
     @if ('production' == $environment)
-    <script src="{{ asset('js/bundle.min.js') }}"></script>
+    <script src="{{ asset('js/app.min.js') }}"></script>
     @else
-    <script src="{{ asset('js/bundle.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     @endif
 @stop

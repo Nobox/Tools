@@ -2,7 +2,9 @@
   "name": "nobox",
   "license": "MIT",
   "private": true,
-  "devDependencies": {},
+  "devDependencies": {
+    "jquery": "~2.1.3"
+  },
   "dependencies": {
     "modernizr": "~2.8.3",
     "beanie": "Nobox/beanie",

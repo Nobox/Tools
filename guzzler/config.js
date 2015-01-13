@@ -38,10 +38,17 @@ config.bower = config.dist + '/bower_components';
  */
 
 config.browserify = {
-    entries: [config.scripts + '/main.coffee'],
-    extensions: ['.coffee'],
-    paths: ['node_modules', config.scripts],
-};
+    bundlesConfig: [
+        {
+            entries: ['./' + config.scripts + '/main.coffee'],
+            dest: config.js,
+            outputName: 'app.js',
+            extensions: ['.coffee'],
+            paths: ['node_modules', config.scripts],
+            debug: true
+        }
+    ]
+}
 
 
 /**
@@ -65,6 +72,14 @@ config.postcss = [
     require('css-mqpacker'),
     require('csswring')
 ];
+
+
+/**
+ * SVG Symbols options
+ */
+config.svgSymbolsOpts = {
+    templates: ['default-svg']
+};
 
 
 /**

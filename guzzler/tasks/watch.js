@@ -12,15 +12,13 @@
  *
  */
 
-var gulp  = require('gulp'),
-    watch = require('gulp-watch'),
-    cfg  = require('../config')
+var gulp     = require('gulp'),
+    watch    = require('gulp-watch'),
+    cfg      = require('../config'),
+    watchify = require('./browserify')
 ;
 
-gulp.task('watch', ['setWatch'], function() {
-    // JavaScript/CoffeeScript
-    gulp.start('browserify');
-
+gulp.task('watch', ['watchify'], function(cb) {
     // Stylesheets
     watch([cfg.styles + '/**/*.scss'],
         {

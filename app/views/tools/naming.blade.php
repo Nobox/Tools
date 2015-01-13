@@ -1,7 +1,8 @@
 <div class="naming">
     <h1>naming convention tool</h1>
 
-    <p>Your filename should be: <span class="filename">AAA-BB-Description_of_the_file-YYYYMMDD-VXX.fileExtension</span></p>
+    <p>Your filename should be:</p>
+    <p><span class="filename">AAA-BB-Description_of_the_file-YYYYMMDD-VXX.fileExtension</span></p>
 
     <label for="deptarea">
         <span>Department or Business Area</span>
@@ -33,7 +34,7 @@
 
     <label for="desc">
         <span>Description</span>
-        <input type="text" name="desc" id="desc" placeholder="Nobox Homepage Hero Image">
+        <input type="text" name="desc" id="desc" placeholder="Nobox Homepage Hero Image" value="Sample Description">
         <strong><abbr title="required">*</abbr></strong>
     </label>
 
@@ -50,6 +51,6 @@
 
     <label for="ext">
         <span>File Extension</span>
-        <input type="text" name="ext" id="ext" placeholder=".txt" value=".txt">
+        <input type="text" name="ext" id="ext" placeholder=".jpg" value=".jpg">
     </label>
 </div>

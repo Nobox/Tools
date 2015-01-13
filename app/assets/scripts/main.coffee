@@ -6,9 +6,9 @@ $(document).ready ->
     lang   = $('html').attr('lang')
     route  = $body.data('route')
 
-    # views =
-    #    index: require('app/index')
+    views =
+       naming: require('tools/naming')
 
     # Run view module for current route
-    #if views[route]?
-    #    views[route].init()
+    if views[route]?
+        views[route].init()

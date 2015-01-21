@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="wrapper">
+<div class="container naming">
     @include('tools/'.$toolid)
 </div>
 

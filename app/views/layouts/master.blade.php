@@ -5,11 +5,8 @@
 @stop
 
 @section('stylesheets')
-    @if ('production' == $environment)
-    <link rel="stylesheet" href="{{ asset('css/styles.min.css') }}">
-    @else
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    @endif
+    <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap-theme.min.css') }}">
 @stop
 
 @section('scripts-head')
@@ -33,6 +30,7 @@
     <!-- jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
+    <script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
     @if ('production' == $environment)
     <script src="{{ asset('js/app.min.js') }}"></script>
